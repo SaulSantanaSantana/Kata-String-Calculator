@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "dIRoyHUPGzdehGxlrxymUOSNhNDHx/O7zTgeulOy+kNLSjz7GDd/b/H4GpVkGs5mZ7mXMnXSF+vKycjcVg8THg==",
+  "success": false,
+  "projectFilePath": "c:\\Users\\sausantana\\Proyectos\\StringCalculator\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "No se puede cargar el índice de servicio para el origen https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json.",
+      "libraryId": "Microsoft.NET.Test.Sdk"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "No se puede cargar el índice de servicio para el origen https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json.",
+      "libraryId": "NUnit"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "No se puede cargar el índice de servicio para el origen https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json.",
+      "libraryId": "NUnit3TestAdapter"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "No se puede cargar el índice de servicio para el origen https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json.",
+      "libraryId": "coverlet.collector"
+    }
+  ]
+}
