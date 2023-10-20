@@ -1,33 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "cKPmE40NHNr1P1KMnaMqjLQUp5C5eUl8Fp1iyJetXH0Zsld3aT56qSQkfF983f0weGB3RUz+62xy2W9siLBUbA==",
-  "success": false,
-  "projectFilePath": "c:\\Users\\sausantana\\Proyectos\\StringCalculator\\string-calculator\\StringCalculator\\StringCalculator.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "No se puede cargar el índice de servicio para el origen https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json.",
-      "libraryId": "Microsoft.NETCore.App.Ref"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "No se puede cargar el índice de servicio para el origen https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json.",
-      "libraryId": "Microsoft.WindowsDesktop.App.Ref"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "No se puede cargar el índice de servicio para el origen https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json.",
-      "libraryId": "Microsoft.AspNetCore.App.Ref"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "No se puede cargar el índice de servicio para el origen https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json.",
-      "libraryId": "Microsoft.NETCore.App.Host.win-x64"
-    }
-  ]
+  "dgSpecHash": "xQesXq96ozBHWL1HoeYmnCA+t8vv0FmcQIUb772ZyYmf3PQKCe+Z9t9CM837xXcF2D2JbDKhtMM7iVwoiuf4mw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator\\StringCalculator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sausantana\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\sausantana\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\sausantana\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\sausantana\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\sausantana\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\sausantana\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
 }

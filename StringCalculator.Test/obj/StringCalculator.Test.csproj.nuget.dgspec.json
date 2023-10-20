@@ -1,34 +1,41 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\sausantana\\Proyectos\\StringCalculator\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj": {}
+    "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj": {}
   },
   "projects": {
-    "c:\\Users\\sausantana\\Proyectos\\StringCalculator\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj": {
+    "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\sausantana\\Proyectos\\StringCalculator\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
+        "projectUniqueName": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
         "projectName": "StringCalculator.Test",
-        "projectPath": "c:\\Users\\sausantana\\Proyectos\\StringCalculator\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
+        "projectPath": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
         "packagesPath": "C:\\Users\\sausantana\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\sausantana\\Proyectos\\StringCalculator\\string-calculator\\StringCalculator.Test\\obj\\",
+        "outputPath": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator.Test\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\sausantana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator\\StringCalculator.csproj": {
+                "projectPath": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator\\StringCalculator.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -38,9 +45,13 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.12.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.9.4, )"
@@ -69,26 +80,80 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator\\StringCalculator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator\\StringCalculator.csproj",
+        "projectName": "StringCalculator",
+        "projectPath": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator\\StringCalculator.csproj",
+        "packagesPath": "C:\\Users\\sausantana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sausantana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
