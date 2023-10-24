@@ -17,7 +17,7 @@ namespace StringCalculator.Controller
     {
 
         private void StoreRequest(string id,string res){
-            var dataToStore = DateTime.Now + " " + id + " " +res;
+            var dataToStore = DateTime.Now + " " + id + " " + res + "\n";
             HistoryController.StoreDataInHistory(dataToStore);
         }
 
