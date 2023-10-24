@@ -6,41 +6,42 @@ using System.Threading.Tasks;
 
 namespace StringCalculator
 {
-    public class StringCalculatorClass
+    public static class StringCalculatorClass
     {
+        private static string delimiter = ",";
+        private static string newDelimiterSimbol = "//";
+        private static int newDelimiterPosition = 3;
 
-        public int add(string argsGiven)
+        public static int add(string inputNumbers)
         {
-            if (string.IsNullOrEmpty(argsGiven)) { return 0; }
-            IEnumerable<int> numbers = TransformInput(argsGiven);
+            if (string.IsNullOrEmpty(inputNumbers)) { return 0; }
+            IEnumerable<int> numbers = TransformInput(inputNumbers);
             CheckNegativeNumbers(numbers);
             return numbers.Where(number => number <= 1000).Sum();
         }
 
-        private IEnumerable<int> TransformInput(string argsGiven)
+        private static IEnumerable<int> TransformInput(string inputNumbers)
         {
+            var actualDelimiter = delimiter;
 
-            var delimiter = ",";
-
-            if (argsGiven.Contains("//"))
+            if (inputNumbers.Contains(newDelimiterSimbol))
             {
-                delimiter = argsGiven[2].ToString();
-                argsGiven = argsGiven.Remove(0, 3);
+                actualDelimiter = inputNumbers[2].ToString();
+                inputNumbers = inputNumbers.Remove(0, newDelimiterPosition);
             }
 
-            argsGiven = argsGiven.Replace("\n", delimiter);
-            var nums = argsGiven.Split(delimiter).Select(int.Parse);
+            inputNumbers = inputNumbers.Replace("\n", actualDelimiter);
+            var nums = inputNumbers.Split(actualDelimiter).Select(int.Parse);
 
-            Console.WriteLine(nums);
             return nums;
         }
 
-        private void CheckNegativeNumbers(IEnumerable<int> numbers)
+        private static void CheckNegativeNumbers(IEnumerable<int> numbers)
         {
             var negatives = numbers.Where(number => number < 0);
             if (negatives.Count() > 0)
             {
-                throw new Exception("Negatives not allowed: " + string.Join(" ", negatives));
+                throw new NegativesNotAlloweException(negatives);
             }
         }
     }

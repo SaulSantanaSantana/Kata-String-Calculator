@@ -16,7 +16,6 @@ namespace StringCalculator.Controller
 
         private ArrayList requests = new ArrayList();
 
-        private StringCalculatorClass calc = new StringCalculatorClass();
 
         private void storeRequest(string id,string res){
             requests.Add((id, res).ToString());
@@ -33,7 +32,7 @@ namespace StringCalculator.Controller
         [HttpGet("{id}")]
         public string Get(string id)
         {
-            string res = calc.add(id).ToString();
+            string res = StringCalculatorClass.add(id).ToString();
             storeRequest(id, res);
             return res;
         }
