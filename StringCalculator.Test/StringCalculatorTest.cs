@@ -1,5 +1,6 @@
 using FluentAssertions;
 using NUnit.Framework;
+using StringCalculator.Model;
 using System;
 
 namespace StringCalculator.Test

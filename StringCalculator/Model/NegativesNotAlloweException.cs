@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StringCalculator
+namespace StringCalculator.Model
 {
     public class NegativesNotAlloweException : Exception
     {

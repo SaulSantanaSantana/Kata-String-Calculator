@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using StringCalculator.Model;
 using static System.Net.WebRequestMethods;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,18 +15,9 @@ namespace StringCalculator.Controller
     public class StringCalculatorController : ControllerBase
     {
 
-        private ArrayList requests = new ArrayList();
-
-
-        private void storeRequest(string id,string res){
-            requests.Add((id, res).ToString());
-        }
-
-        // GET api/<StringCalculatorController>/
-        [HttpGet]
-        public string Get()
-        {    
-            return requests.ToString();
+        private void StoreRequest(string id,string res){
+            var toStore = "";
+            //MetodoLlamada(toStore)
         }
 
         // GET api/<StringCalculatorController>/5
@@ -33,7 +25,7 @@ namespace StringCalculator.Controller
         public string Get(string id)
         {
             string res = StringCalculatorClass.add(id).ToString();
-            storeRequest(id, res);
+            StoreRequest(id, res);
             return res;
         }
 
