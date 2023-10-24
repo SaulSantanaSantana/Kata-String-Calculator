@@ -10,7 +10,7 @@ namespace StringCalculator.Persistance
 
             try
             {
-                using (StreamWriter writer = new StreamWriter(histaryAddres))
+                using (StreamWriter writer = new StreamWriter(histaryAddres, true))
                 {
                     writer.Write(data);
                 }

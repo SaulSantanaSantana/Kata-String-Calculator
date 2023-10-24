@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using StringCalculator.Model;
+using StringCalculator.Persistance;
 using static System.Net.WebRequestMethods;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,8 +17,8 @@ namespace StringCalculator.Controller
     {
 
         private void StoreRequest(string id,string res){
-            var toStore = "";
-            //MetodoLlamada(toStore)
+            var dataToStore = DateTime.Now + " " + id + " " +res;
+            HistoryController.StoreDataInHistory(dataToStore);
         }
 
         // GET api/<StringCalculatorController>/5
