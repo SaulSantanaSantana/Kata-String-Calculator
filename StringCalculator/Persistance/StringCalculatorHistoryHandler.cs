@@ -4,7 +4,7 @@ using System.Reflection.Metadata;
 
 namespace StringCalculator.Persistance
 {
-    public class StringCalculatorHistoryHandler
+    public class StringCalculatorHistoryHandler : Save
     {
         private HistoryStorer storer;
         public StringCalculatorHistoryHandler(string path = "history.txt")
@@ -16,5 +16,17 @@ namespace StringCalculator.Persistance
 
             return StringCalculatorClass.add(id);
         }
+
+        void Save.SaveToFile(string request)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public interface Save
+    {
+
+        public void SaveToFile(string request);
+
     }
 }

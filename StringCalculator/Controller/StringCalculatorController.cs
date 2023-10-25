@@ -27,7 +27,7 @@ namespace StringCalculator.Controller
         [HttpGet("{id}")]
         public string Get(string id)
         {
-            string res = StringCalculatorClass.add(id).ToString();
+            var res = StringCalculatorClass.add(id).ToString();
             StoreRequest(id, res);
             return res;
         }
