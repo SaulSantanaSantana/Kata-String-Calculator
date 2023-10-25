@@ -22,7 +22,7 @@ namespace StringCalculator.Test
         public void write_data_on_get_request()
         {
             var path = "historyTest.txt";
-            historyStorer.StoreDataInHistory("TestsString");
+            historyStorer.StoreData("TestsString");
 
             var result = File.ReadLines(path).First();
 

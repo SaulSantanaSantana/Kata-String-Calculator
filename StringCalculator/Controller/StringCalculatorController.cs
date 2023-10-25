@@ -16,19 +16,12 @@ namespace StringCalculator.Controller
     public class StringCalculatorController : ControllerBase
     {
 
-        private HistoryStorer historyStorer = new HistoryStorer("history.txt");
-
-        private void StoreRequest(string id,string res){
-            var dataToStore = DateTime.Now + " " + id + " " + res + "\n";
-            historyStorer.StoreDataInHistory(dataToStore);
-        }
 
         // GET api/<StringCalculatorController>/5
         [HttpGet("{id}")]
         public string Get(string id)
         {
             var res = StringCalculatorClass.add(id).ToString();
-            StoreRequest(id, res);
             return res;
         }
 

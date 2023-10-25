@@ -13,13 +13,14 @@ namespace HisoryControllerHandler.Test
 {
     internal class HistoryHandlerShould
     {
-
+        private Save storer;
         private StringCalculatorHistoryHandler handler;
 
         [SetUp]
         public void Setup()
         {
-            var handler = new StringCalculatorHistoryHandler();
+            storer = Substitute.For<Save>();
+            handler = new StringCalculatorHistoryHandler(storer);
         }
 
 
@@ -34,11 +35,10 @@ namespace HisoryControllerHandler.Test
         [Test]
         public void write_given_data_on_correct_format()
         {
-            var save = Substitute.For<Save>();
 
             handler.HandleRequest("1,2,3");
 
-            save.Received(1).SaveToFile(DateTime.Now + " 1,2,3  6");
+            storer.Received(1).StoreData(DateTime.Now + " " + "1,2,3 6");
         }
     }
 }

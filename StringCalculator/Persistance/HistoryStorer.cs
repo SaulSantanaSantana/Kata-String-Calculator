@@ -3,7 +3,7 @@ using System;
 
 namespace StringCalculator.Persistance
 {
-    public class HistoryStorer
+    public class HistoryStorer : Save
     {
         private string histaryAddres;
 
@@ -12,7 +12,7 @@ namespace StringCalculator.Persistance
             this.histaryAddres = histaryAddres;
         }
 
-        public void StoreDataInHistory(string data) {
+        public void StoreData(string data) {
 
             try
             {
@@ -27,6 +27,12 @@ namespace StringCalculator.Persistance
             }
 
         }
+
+    }
+
+    public interface Save
+    {
+        public void StoreData(string request);
 
     }
 }

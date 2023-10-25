@@ -1,32 +1,34 @@
 ﻿using StringCalculator.Model;
 using System;
 using System.Reflection.Metadata;
+using System.Threading.Tasks;
 
 namespace StringCalculator.Persistance
 {
-    public class StringCalculatorHistoryHandler : Save
+    public class StringCalculatorHistoryHandler
     {
-        private HistoryStorer storer;
-        public StringCalculatorHistoryHandler(string path = "history.txt")
+        private Save storer;
+        public StringCalculatorHistoryHandler(Save storer)
         {
-            this.storer = new HistoryStorer(path);
+            this.storer = storer;
         }
 
         public int HandleRequest(string id) {
+            var result = StringCalculatorClass.add(id);
+            var request = ConvertDataToRequest(id, result.ToString());
 
-            return StringCalculatorClass.add(id);
+            SaveToFile(request);
+
+            return result;
         }
 
-        void Save.SaveToFile(string request)
+        public void SaveToFile(string request)
         {
-            throw new NotImplementedException();
+            storer.StoreData(request);
         }
-    }
 
-    public interface Save
-    {
-
-        public void SaveToFile(string request);
-
+        private string ConvertDataToRequest(string id, string result){
+            return DateTime.Now + " " + id + " " + result;
+        }
     }
 }
