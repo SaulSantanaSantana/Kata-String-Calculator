@@ -28,7 +28,7 @@ namespace StringCalculator.Persistance
         }
 
         private string ConvertDataToRequest(string id, string result){
-            return DateTime.Now + " " + id + " " + result;
+            return DateTime.Now + " " + id + " " + result + "\n";
         }
     }
 }

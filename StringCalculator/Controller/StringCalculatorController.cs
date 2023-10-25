@@ -15,14 +15,14 @@ namespace StringCalculator.Controller
 
     public class StringCalculatorController : ControllerBase
     {
-
+        private StringCalculatorHistoryHandler handler = new StringCalculatorHistoryHandler(new HistoryStorer("history.txt"));
 
         // GET api/<StringCalculatorController>/5
         [HttpGet("{id}")]
         public string Get(string id)
         {
-            var res = StringCalculatorClass.add(id).ToString();
-            return res;
+
+            return handler.HandleRequest(id).ToString();
         }
 
         
