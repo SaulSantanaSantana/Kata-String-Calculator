@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StringCalculator.Model;
+using System;
 using System.Reflection.Metadata;
 
 namespace StringCalculator.Persistance
@@ -12,7 +13,8 @@ namespace StringCalculator.Persistance
         }
 
         public int HandleRequest(string id) {
-            throw new NotImplementedException();
+
+            return StringCalculatorClass.add(id);
         }
     }
 }
