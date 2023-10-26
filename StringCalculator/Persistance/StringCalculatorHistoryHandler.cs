@@ -8,6 +8,7 @@ namespace StringCalculator.Persistance
     public class StringCalculatorHistoryHandler
     {
         private Save storer;
+        public DateTime lastRequestMade { get; set; }
         public StringCalculatorHistoryHandler(Save storer)
         {
             this.storer = storer;
@@ -28,7 +29,8 @@ namespace StringCalculator.Persistance
         }
 
         private string ConvertDataToRequest(string id, string result){
-            return DateTime.Now + " " + id + " " + result + "\n";
+            lastRequestMade = DateTime.Now;
+            return lastRequestMade + " " + id + " " + result + "\n";
         }
     }
 }

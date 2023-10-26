@@ -22,9 +22,9 @@ namespace StringCalculator.Test
         public void write_data_on_get_request()
         {
             var path = "historyTest.txt";
-            historyStorer.StoreData("TestsString");
+            historyStorer.StoreData("TestsString\n");
 
-            var result = File.ReadLines(path).First();
+            var result = File.ReadLines(path).Last();
 
             result.Should().Be("TestsString");
             

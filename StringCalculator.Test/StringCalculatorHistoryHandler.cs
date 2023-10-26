@@ -38,7 +38,7 @@ namespace HisoryControllerHandler.Test
 
             handler.HandleRequest("1,2,3");
 
-            storer.Received(1).StoreData(DateTime.Now + " " + "1,2,3 6");
+            storer.Received(1).StoreData(handler.lastRequestMade + " " + "1,2,3 6\n");
         }
     }
 }
