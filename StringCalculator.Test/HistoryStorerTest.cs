@@ -1,5 +1,7 @@
 ﻿using FluentAssertions;
+using NSubstitute;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using StringCalculator.Persistance;
 using System;
 using System.IO;
@@ -10,24 +12,25 @@ namespace StringCalculator.Test
     public class HistoryControllerShould
     {
 
-        private HistoryStorer historyStorer;
+        private Save historyStorer;
+        private TimePicker timePicker;
 
         [SetUp]
         public void Setup()
         {
-            historyStorer = new HistoryStorer("historyTest.txt");
+            timePicker = Substitute.For<TimePicker>();
+            historyStorer = new HistoryStorer("historyTest.txt", timePicker);
         }
 
         [Test]
         public void write_data_on_get_request()
         {
-            var path = "historyTest.txt";
-            historyStorer.StoreData("TestsString\n");
+            historyStorer.StoreData("TestsString","TestOutout");
 
-            var result = File.ReadLines(path).Last();
+            var result = File.ReadLines("historyTest.txt").Last();
 
-            result.Should().Be("TestsString");
-            
+            timePicker.Received(1).GetDate();
+
         }
     } 
 }

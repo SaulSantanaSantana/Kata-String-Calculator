@@ -15,7 +15,7 @@ namespace StringCalculator.Controller
 
     public class StringCalculatorController : ControllerBase
     {
-        private StringCalculatorHistoryHandler handler = new StringCalculatorHistoryHandler(new HistoryStorer("history.txt"));
+        private StringCalculatorHistoryHandler handler = new StringCalculatorHistoryHandler(new HistoryStorer("history.txt", new HistoryTimePicker()));
 
         // GET api/<StringCalculatorController>/5
         [HttpGet("{id}")]

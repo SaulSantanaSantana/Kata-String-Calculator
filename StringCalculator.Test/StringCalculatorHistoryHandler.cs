@@ -33,12 +33,12 @@ namespace HisoryControllerHandler.Test
         }
 
         [Test]
-        public void write_given_data_on_correct_format()
+        public void write_given_data_on_file()
         {
 
             handler.HandleRequest("1,2,3");
 
-            storer.Received(1).StoreData(handler.lastRequestMade + " " + "1,2,3 6\n");
+            storer.Received(1).StoreData("1,2,3","6");
         }
     }
 }

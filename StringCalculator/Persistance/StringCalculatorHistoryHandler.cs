@@ -1,7 +1,5 @@
 ﻿using StringCalculator.Model;
 using System;
-using System.Reflection.Metadata;
-using System.Threading.Tasks;
 
 namespace StringCalculator.Persistance
 {
@@ -16,21 +14,11 @@ namespace StringCalculator.Persistance
 
         public int HandleRequest(string id) {
             var result = StringCalculatorClass.add(id);
-            var request = ConvertDataToRequest(id, result.ToString());
 
-            SaveToFile(request);
+            storer.StoreData(id, result.ToString());
 
             return result;
         }
 
-        public void SaveToFile(string request)
-        {
-            storer.StoreData(request);
-        }
-
-        private string ConvertDataToRequest(string id, string result){
-            lastRequestMade = DateTime.Now;
-            return lastRequestMade + " " + id + " " + result + "\n";
-        }
     }
 }
