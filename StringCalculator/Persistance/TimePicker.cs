@@ -9,7 +9,9 @@ namespace StringCalculator.Persistance
 
     public class HistoryTimePicker : TimePicker
     {
-        public DateTime GetDate() => DateTime.Now;
+        public DateTime GetDate() {
+            return DateTime.Now;
+        } 
 
     }
 }

@@ -25,11 +25,13 @@ namespace StringCalculator.Test
         [Test]
         public void write_data_on_get_request()
         {
+            var expectedDate = DateTime.Now;
+            timePicker.GetDate().Returns(expectedDate);
             historyStorer.StoreData("TestsString","TestOutout");
-
+            
             var result = File.ReadLines("historyTest.txt").Last();
 
-            timePicker.Received(1).GetDate();
+            result.Should().Be(expectedDate + " TestsString TestOutout");
 
         }
     } 
