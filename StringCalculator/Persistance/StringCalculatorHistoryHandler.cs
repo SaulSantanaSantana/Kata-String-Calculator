@@ -6,7 +6,6 @@ namespace StringCalculator.Persistance
     public class StringCalculatorHistoryHandler
     {
         private Save storer;
-        public DateTime lastRequestMade { get; set; }
         public StringCalculatorHistoryHandler(Save storer)
         {
             this.storer = storer;
