@@ -16,13 +16,10 @@ namespace StringCalculator.Controller
 
     public class StringCalculatorController : ControllerBase
     {
-        private IConfigurationRoot builder;
         private StringCalculatorHistoryHandler handler;
-        public StringCalculatorController()
+        public StringCalculatorController(StringCalculatorHistoryHandler handler)
         {
-            builder = new ConfigurationBuilder().AddJsonFile("appsettings.json", false, true).Build();
-            handler = new StringCalculatorHistoryHandler(new HistoryStorer(builder["HistoryPath"], new HistoryTimePicker()));
-
+            this.handler = handler;
         }
 
         // GET api/<StringCalculatorController>/5
