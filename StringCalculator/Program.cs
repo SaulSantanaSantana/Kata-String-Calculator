@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StringCalculator.Persistance;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,7 @@ services.AddEndpointsApiExplorer();
 
 //Dependency injector
 var config = builder.Configuration
-    .SetBasePath(@"C:\Users\sausantana\source\repos\string-calculator\StringCalculator")
+    .SetBasePath(Environment.CurrentDirectory)
     .AddJsonFile("appsettings.json",true,false)
     .Build();
 
