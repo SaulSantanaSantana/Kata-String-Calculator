@@ -5788,7 +5788,7 @@
       "projectName": "StringCalculator.Test",
       "projectPath": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
       "packagesPath": "C:\\Users\\sausantana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sausantana\\source\\repos\\string-calculator\\StringCalculator.Test\\obj\\",
+      "outputPath": "C:\\Users\\sausantana\\Source\\Repos\\string-calculator\\StringCalculator.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

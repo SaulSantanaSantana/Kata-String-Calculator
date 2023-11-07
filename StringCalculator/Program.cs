@@ -3,7 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StringCalculator.Persistance;
+using StringCalculator.HealthChecks;
 using System;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +26,16 @@ services.AddScoped<TimePicker, HistoryTimePicker>();
 services.AddScoped<Save, HistoryStorer>(services => new HistoryStorer(config["HistoryPath"], services.GetService<TimePicker>()));
 services.AddScoped<StringCalculatorHistoryHandler, StringCalculatorHistoryHandler>();
 
+var fullPath = Environment.CurrentDirectory + @"\\" + config["HistoryPath"];
+builder.Services.AddHealthChecks().AddCheck("HistoryCheck", new StringCalculatorHistoryHealthCheck(fullPath));
+
 var app = builder.Build();
+
+app.MapHealthChecks("/health", new HealthCheckOptions
+{
+    ResponseWriter = StringCalculatorHistoryHealthCheck.writeResponse
+}).RequireHost("*:7049");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
