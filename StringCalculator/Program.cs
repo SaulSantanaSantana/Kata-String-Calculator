@@ -31,7 +31,7 @@ builder.Services.AddHealthChecks().AddCheck("HistoryCheck", new StringCalculator
 
 var app = builder.Build();
 
-app.MapHealthChecks("/health", new HealthCheckOptions
+app.MapHealthChecks("/status.json", new HealthCheckOptions
 {
     ResponseWriter = StringCalculatorHistoryHealthCheck.writeResponse
 }).RequireHost("*:7049");
