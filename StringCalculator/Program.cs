@@ -2,10 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using StringCalculator.Persistance;
-using StringCalculator.HealthChecks;
-using System;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using StringCalculator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,25 +13,16 @@ services.AddControllers();
 services.AddEndpointsApiExplorer();
 
 //Dependency injector
-var config = builder.Configuration
-    .SetBasePath(Environment.CurrentDirectory)
-    .AddJsonFile("appsettings.json",true,false)
-    .Build();
+var config = Setup.AppSetings(builder);
+Setup.HistoryDependencyInjector(services, config);
 
 services.AddSwaggerGen();
-services.AddScoped<TimePicker, HistoryTimePicker>();
-services.AddScoped<Save, HistoryStorer>(services => new HistoryStorer(config["HistoryPath"], services.GetService<TimePicker>()));
-services.AddScoped<StringCalculatorHistoryHandler, StringCalculatorHistoryHandler>();
 
-var fullPath = Environment.CurrentDirectory + @"\\" + config["HistoryPath"];
-builder.Services.AddHealthChecks().AddCheck("HistoryCheck", new StringCalculatorHistoryHealthCheck(fullPath));
+Setup.HistoryHealthChecks(builder, config);
 
 var app = builder.Build();
 
-app.MapHealthChecks("/status.json", new HealthCheckOptions
-{
-    ResponseWriter = StringCalculatorHistoryHealthCheck.writeResponse
-}).RequireHost("*:7049");
+Setup.MapHistoryHelathChecks(app);
 
 
 // Configure the HTTP request pipeline.
