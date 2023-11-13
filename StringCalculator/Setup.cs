@@ -5,6 +5,7 @@ using StringCalculator.Persistance;
 using StringCalculator.HealthChecks;
 using System;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using System.IO;
 
 namespace StringCalculator
 {
@@ -26,16 +27,37 @@ namespace StringCalculator
         }
 
         public static void HistoryHealthChecks(WebApplicationBuilder builder, IConfigurationRoot config) {
-            var fullPath = Environment.CurrentDirectory + @"\\" + config["HistoryPath"];
+            var fullPath = Path.Combine(Environment.CurrentDirectory, config["HistoryPath"]);
             builder.Services.AddHealthChecks().AddCheck("HistoryCheck", new StringCalculatorHistoryHealthCheck(fullPath));
         }
 
-        internal static void MapHistoryHelathChecks(WebApplication app)
+        public static void MapHistoryHelathChecks(WebApplication app)
         {
             app.MapHealthChecks("/status.json", new HealthCheckOptions
             {
                 ResponseWriter = StringCalculatorHistoryHealthCheck.writeResponse
-            }).RequireHost("*:7049");
+            });
+        }
+
+        public static void addSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(); ;
+        }
+
+        public static void ActivateSwagger(WebApplication app)
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+        public static void CreateHistoryFile(IConfigurationRoot config)
+        {
+            var fullPath = Path.Combine(Environment.CurrentDirectory, config["HistoryPath"]);
+            var Exists = File.Exists(fullPath);
+
+            if (!Exists) {
+                File.Create(fullPath);
+            }
         }
     }
 }

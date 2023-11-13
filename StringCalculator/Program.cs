@@ -16,7 +16,7 @@ services.AddEndpointsApiExplorer();
 var config = Setup.AppSetings(builder);
 Setup.HistoryDependencyInjector(services, config);
 
-services.AddSwaggerGen();
+Setup.addSwagger(services);
 
 Setup.HistoryHealthChecks(builder, config);
 
@@ -24,18 +24,12 @@ var app = builder.Build();
 
 Setup.MapHistoryHelathChecks(app);
 
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
+Setup.ActivateSwagger(app);
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+Setup.CreateHistoryFile(config);
 
 app.Run();
