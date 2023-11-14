@@ -34,9 +34,8 @@ steps:
     command: 'publish'
     publishWebProjects: false
     projects: './StringCalculator/StringCalculator.csproj'
-    arguments: '-c Release -o out --no-restore --no-build'
+    arguments: '-c Release -o $(build.artifactstagingdirectory)\out --no-restore --no-build'
 - task: PublishBuildArtifacts@1
   displayName: 'Publicar resultados'
   inputs:
-    targetPath: /home/vsts/work/1/s/out/
-    artifactName: 'drop'
+    PathtoPublish: '$(build.artifactstagingdirectory)'
