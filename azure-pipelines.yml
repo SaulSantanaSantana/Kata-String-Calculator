@@ -38,6 +38,4 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publicar resultados'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    TargetPath: drop
