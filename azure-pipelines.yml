@@ -38,4 +38,5 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publicar resultados'
   inputs:
-    targetPath: ./out
+    targetPath: /home/vsts/work/1/s/out/
+    artifactName: 'drop'
